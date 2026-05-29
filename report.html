@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah Al-Othaim Markets — Stock Analytics Report (4001.SR)</title>
+<meta name="description" content="Comprehensive data analytics report for Abdullah Al-Othaim Markets Company (Tadawul: 4001.SR), covering 15+ years of stock performance data from 2010 to 2026.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══════ HERO HEADER ═══════ -->
+<header class="hero">
+  <img src="images/logo.jpg" alt="Abdullah Al-Othaim Markets Company Logo" class="hero-logo">
+  <h1>Abdullah Al-Othaim Markets</h1>
+  <p class="subtitle">Comprehensive Stock Performance Analytics Report — Tadawul: 4001.SR — Spanning 15.9 years of daily trading data from March 2010 to January 2026.</p>
+  <span class="meta-badge">📊 Data Analytics Report — April 2026</span>
+</header>
+
+<div class="container">
+
+  <!-- ═══════ SECTION 1: EXECUTIVE SUMMARY ═══════ -->
+  <h2 class="section-title">Executive Summary</h2>
+  <p class="section-desc">A bird's-eye view of the stock's key performance indicators over the full dataset range.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-value">3,910</div><div class="kpi-label">Trading Days</div></div>
+    <div class="kpi-card"><div class="kpi-value">6.66 SAR</div><div class="kpi-label">Latest Close</div></div>
+    <div class="kpi-card"><div class="kpi-value">+777.5%</div><div class="kpi-label">Total Return</div></div>
+    <div class="kpi-card"><div class="kpi-value">68.54 SAR</div><div class="kpi-label">All‑Time High</div></div>
+    <div class="kpi-card"><div class="kpi-value">2.39M</div><div class="kpi-label">Avg Daily Volume</div></div>
+    <div class="kpi-card"><div class="kpi-value">1.85%</div><div class="kpi-label">Avg Volatility</div></div>
+  </div>
+
+  <!-- ═══════ SECTION 2: DATASET OVERVIEW ═══════ -->
+  <h2 class="section-title">Dataset Overview</h2>
+  <p class="section-desc">The dataset comprises daily OHLCV (Open, High, Low, Close, Volume) records sourced from Tadawul via Yahoo Finance.</p>
+
+  <div class="card">
+    <h3>📋 Column Definitions</h3>
+    <table class="data-table">
+      <thead><tr><th>Column</th><th>Type</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Date</td><td>Datetime</td><td>Trading date on the Saudi Stock Exchange (Tadawul).</td></tr>
+        <tr><td>Open</td><td>Float</td><td>Price at which the stock opened for the trading day (SAR).</td></tr>
+        <tr><td>High</td><td>Float</td><td>Maximum price reached during the trading session (SAR).</td></tr>
+        <tr><td>Low</td><td>Float</td><td>Minimum price reached during the trading session (SAR).</td></tr>
+        <tr><td>Close</td><td>Float</td><td>Final adjusted closing price of the trading day (SAR).</td></tr>
+        <tr><td>Volume</td><td>Integer</td><td>Total number of shares traded during the day.</td></tr>
+      </tbody>
+    </table>
+    <div class="highlight-box">
+      <h4>📌 Note on Adjusted Prices</h4>
+      <p>Close prices are backward-adjusted for historical corporate actions (stock splits, dividends) to enable continuous time-series analysis without artificial gaps.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SECTION 3: KEY FINDINGS ═══════ -->
+  <h2 class="section-title">Key Analytical Findings</h2>
+  <p class="section-desc">Insights derived from the exploratory data analysis conducted in the Jupyter notebook (<code>New_App.ipynb</code>).</p>
+
+  <div class="card">
+    <h3>📈 Trend Analysis</h3>
+    <ul>
+      <li><strong>Growth Phase (2010–2015):</strong> The stock rose from ~0.76 SAR to its all-time high of 68.54 SAR, driven by aggressive retail expansion across Saudi Arabia.</li>
+      <li><strong>Correction Phase (2015–2020):</strong> A significant drawdown occurred in line with oil price volatility and broader Saudi market corrections.</li>
+      <li><strong>Stabilization Phase (2020–2026):</strong> Post-COVID recovery followed by gradual normalization, with the stock trading near 6.66 SAR at the latest data point.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📊 Distribution Insights</h3>
+    <ul>
+      <li>Daily returns follow a <strong>leptokurtic distribution</strong> — heavier tails than a normal distribution, indicating occasional extreme price swings.</li>
+      <li>Volume distribution is <strong>right-skewed</strong>, with intermittent spikes corresponding to earnings announcements and market events.</li>
+      <li>The average daily price range (High - Low) was <strong>1.85%</strong> of the closing price.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🔗 Correlation & Relationships</h3>
+    <ul>
+      <li>Open, High, Low, and Close prices exhibit <strong>near-perfect multicollinearity</strong> (correlation > 0.99), typical of daily OHLC data.</li>
+      <li>Volume shows a <strong>weak negative correlation</strong> with price, suggesting sell-offs tend to attract higher trading activity.</li>
+      <li>Moving average crossovers (50-day SMA vs 200-day SMA) historically preceded trend reversals by 2–4 weeks.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📐 Statistical Summary</h3>
+    <table class="data-table">
+      <thead><tr><th>Metric</th><th>Close (SAR)</th><th>Volume</th></tr></thead>
+      <tbody>
+        <tr><td>Mean</td><td>23.41</td><td>2,394,120</td></tr>
+        <tr><td>Std Dev</td><td>17.82</td><td>4,118,500</td></tr>
+        <tr><td>Min</td><td>0.76</td><td>0</td></tr>
+        <tr><td>25th Percentile</td><td>6.88</td><td>448,300</td></tr>
+        <tr><td>Median</td><td>18.90</td><td>1,110,000</td></tr>
+        <tr><td>75th Percentile</td><td>37.90</td><td>2,736,600</td></tr>
+        <tr><td>Max</td><td>68.54</td><td>75,238,800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════ SECTION 4: METHODOLOGY ═══════ -->
+  <h2 class="section-title">Methodology & Approach</h2>
+  <p class="section-desc">Step-by-step workflow used to produce this analysis.</p>
+
+  <div class="card">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h4>Data Acquisition</h4>
+        <p>Historical OHLCV data was extracted from Yahoo Finance using the ticker symbol <strong>4001.SR</strong> and saved as CSV.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h4>Data Cleaning & Preprocessing</h4>
+        <p>Fixed encoding anomalies in column headers, parsed dates, handled missing values, and verified numerical integrity.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h4>Feature Engineering</h4>
+        <p>Derived technical indicators: Daily Returns, SMA-50/200, Bollinger Bands, RSI, MACD, and Volume-weighted patterns.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h4>Exploratory Data Analysis</h4>
+        <p>Conducted statistical tests (Shapiro-Wilk, ADF stationarity), visualized distributions, and identified anomalies.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <h4>Interactive Visualization</h4>
+        <p>Built 20+ Plotly charts across 7 dashboard sections: Overview, Distribution, Composition, Relationship, Comparison, Statistical, and Dashboard.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">6</div>
+      <div class="step-content">
+        <h4>Report Generation</h4>
+        <p>Assembled findings into this standalone report, the interactive dashboard, and supporting documentation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ SECTION 5: CHALLENGES ═══════ -->
+  <h2 class="section-title">Challenges Encountered</h2>
+  <p class="section-desc">Key obstacles encountered during analysis and their resolutions.</p>
+
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>Challenge</th><th>Impact</th><th>Resolution</th></tr></thead>
+      <tbody>
+        <tr><td>Column encoding artifacts (??)</td><td>Pipeline parsing failures</td><td>Manual header remapping</td></tr>
+        <tr><td>Missing weekend/holiday dates</td><td>Sequential model disruption</td><td>Business-day reindexing</td></tr>
+        <tr><td>Extreme price volatility</td><td>Obscured underlying trends</td><td>Log-returns & rolling smoothing</td></tr>
+        <tr><td>Adjusted vs. nominal pricing</td><td>Backtesting accuracy</td><td>Split factor documentation</td></tr>
+        <tr><td>Large file sizes from Plotly</td><td>Slow page load</td><td>Lazy loading & data optimization</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════ SECTION 6: RECOMMENDATIONS ═══════ -->
+  <h2 class="section-title">Recommendations & Next Steps</h2>
+  <p class="section-desc">Actionable suggestions to enhance and extend this analytics project.</p>
+
+  <div class="card">
+    <h3>🚀 What Else Can You Do?</h3>
+    <ul>
+      <li><strong>Predictive Modeling:</strong> Apply ARIMA, Prophet, or LSTM neural networks to forecast future price movements and compare their MAPE scores.</li>
+      <li><strong>Sentiment Analysis:</strong> Incorporate Arabic-language news sentiment from financial outlets to correlate market events with stock behavior.</li>
+      <li><strong>Peer Comparison:</strong> Benchmark Al-Othaim Markets against retail-sector peers (e.g., BinDawood, Al-Raya) on Tadawul.</li>
+      <li><strong>Portfolio Optimization:</strong> Use Modern Portfolio Theory to evaluate optimal allocation strategies including this stock.</li>
+      <li><strong>Live Data Pipeline:</strong> Automate daily data ingestion via the Yahoo Finance API so the dashboard stays evergreen.</li>
+      <li><strong>Fundamental Integration:</strong> Merge quarterly earnings, P/E ratios, and dividend yield data to build a multi-factor model.</li>
+      <li><strong>Risk Assessment:</strong> Calculate Value at Risk (VaR) and Conditional VaR using Monte Carlo simulations.</li>
+      <li><strong>Deployment:</strong> Host the interactive dashboard on <strong>GitHub Pages</strong>, <strong>Vercel</strong>, or <strong>Streamlit Cloud</strong> for stakeholder access.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ SECTION 7: PROJECT FILES ═══════ -->
+  <h2 class="section-title">Project File Reference</h2>
+  <p class="section-desc">Complete inventory of all deliverables produced for this analytics project.</p>
+
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>File</th><th>Type</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>dashboard.html</td><td>HTML</td><td>Interactive Plotly dashboard with 7 analytical pages</td></tr>
+        <tr><td>report.html</td><td>HTML</td><td>Standalone analytics report (this file) — also printable as PDF</td></tr>
+        <tr><td>styles.css</td><td>CSS</td><td>External stylesheet for the report page</td></tr>
+        <tr><td>guide.md</td><td>Markdown</td><td>Comprehensive step-by-step project guide</td></tr>
+        <tr><td>New_App.ipynb</td><td>Notebook</td><td>Full EDA Jupyter notebook with code, charts, and narratives</td></tr>
+        <tr><td>app.md</td><td>Markdown</td><td>Project Requirements Document (PRD) for Kaggle</td></tr>
+        <tr><td>Abdullah Al-Othaim Markets Company.csv</td><td>CSV</td><td>Raw stock dataset (3,910 rows × 6 columns)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════ SECTION 8: DATA SOURCE ═══════ -->
+  <div class="card">
+    <h3>🔗 Data Source & Attribution</h3>
+    <p><strong>Primary Source:</strong> Saudi Stock Exchange (Tadawul) — aggregated via Yahoo Finance<br>
+    <strong>Ticker Symbol:</strong> 4001.SR<br>
+    <strong>Coverage:</strong> March 4, 2010 → January 29, 2026<br>
+    <strong>Link:</strong> <a href="https://finance.yahoo.com/quote/4001.SR/history" target="_blank" rel="noopener">finance.yahoo.com/quote/4001.SR/history</a></p>
+  </div>
+
+  <div class="highlight-box" style="margin-top:32px;">
+    <h4>💡 How to Save as PDF</h4>
+    <p>Open this page in your browser → Press <strong>Ctrl+P</strong> (or Cmd+P on Mac) → Select <strong>"Save as PDF"</strong> as the destination → Click Save. The print-optimized styles will automatically activate.</p>
+  </div>
+
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <p>Abdullah Al-Othaim Markets Company — Stock Analytics Report © 2026</p>
+  <p style="margin-top:6px;">Generated as part of the comprehensive EDA project • <a href="dashboard.html">Open Interactive Dashboard →</a></p>
+</footer>
+
+</body>
+</html>
